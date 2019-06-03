@@ -1,0 +1,23 @@
+
+<h2>Objects</h2>
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Description">
+  </mat-form-field>
+
+  <button mat-raised-button (click)="addObject()">Add object</button>
+</div>
+
+
+<mat-list>
+  <mat-list-item *ngFor="let object of list">
+    <mat-icon matListIcon color="warn" (click) = "deleteObject()">delete</mat-icon>
+    <h3 matLine> {{object.title}} </h3>
+    <p matLine>
+      <span> {{object.description}} </span>
+  </mat-list-item>
+</mat-list>
