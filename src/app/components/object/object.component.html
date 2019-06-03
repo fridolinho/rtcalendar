@@ -14,7 +14,7 @@
 <p></p>
 <mat-list>
   <mat-list-item *ngFor="let object of list">
-    <mat-icon matListIcon color="warn" (click) = "deleteObject(myForm)">delete</mat-icon>
+    <mat-icon matListIcon color="warn" (click) = "deleteObject(object.id)">delete</mat-icon>
     <h3 matLine> {{object.title}} </h3>
     <p matLine>
       <span> {{object.description}} </span>

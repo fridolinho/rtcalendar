@@ -18,7 +18,8 @@ export class ObjectComponent implements OnInit {
    ngOnInit() {
     this._objectService.getObjects().subscribe(actionArray => {
       this.list = actionArray.map(item => {
-        return item.payload.doc.data();
+        const object = item.payload.doc.data();
+        return  object;
       })
     });
   }
@@ -32,6 +33,10 @@ export class ObjectComponent implements OnInit {
     }
 
     this._objectService.addObject(obj);
+  }
+
+  deleteObject(id) {
+    this._objectService.deleteObject(id);
   }
 }
 

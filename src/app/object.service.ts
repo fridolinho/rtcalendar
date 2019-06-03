@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class ObjectService {
-  constructor(private firestore: AngularFirestore, private toastr: ToastrService) { }
+  constructor(private firestore: AngularFirestore, private toastr: ToastrService) {}
 
   getObjects() {
     return this.firestore.collection('object').snapshotChanges();  
@@ -22,6 +22,11 @@ export class ObjectService {
         console.error("Error adding document: ", error);
       });      
     }
+
+  }
+
+  deleteObject(id) {
+    console.log(id);
 
   }
 }
