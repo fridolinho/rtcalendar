@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ObjectService } from '../../object.service';
 import { Observable } from 'rxjs';
-import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 
 @Component({
@@ -24,12 +23,15 @@ export class ObjectComponent implements OnInit {
     });
   }
 
-  addObject() {
-    this._objectService.deleteObject();
-  }
+  addObject(data) {
+    let obj;
+    obj = {
+      id: this.list.length + 1,
+      title: data.value.title,
+      description: data.value.description,
+    }
 
-  deleteObject() {
-    this._objectService.deleteObject();
+    this._objectService.addObject(obj);
   }
 }
 

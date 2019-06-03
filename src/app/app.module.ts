@@ -9,9 +9,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'; 
 import { MatSelectModule } from '@angular/material/select';  
-
+import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { CommonModule } from '@angular/common';
+ 
+import { ToastrModule } from 'ngx-toastr';
 
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +32,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatMenuModule,
+    FormsModule,
     MatIconModule,
     MatCardModule,
     MatListModule,
@@ -36,6 +40,8 @@ import { environment } from '../environments/environment';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    CommonModule,
+    ToastrModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule
   ],
