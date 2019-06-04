@@ -1,12 +1,14 @@
 
 <h2>Objects</h2>
 <div class="example-container">
-  <form #myform="ngForm" (ngSubmit)=addObject(myform)>
+  <form #myform="ngForm" autocomplete="off" (ngSubmit)=addObject(myform)>
     <mat-form-field>
-      <input matInput placeholder="Title" name="title" ngModel required>
+      <input type="hidden" name="id" ngModel required>
+      <input matInput placeholder="Title" #title = "ngModel" name="title" ngModel required>
+
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Description" name = "description"  ngModel required>
+      <input matInput placeholder="Description" #description = "ngModel" name = "description"  ngModel required>
     </mat-form-field>
     <button mat-raised-button type="submit">Add object</button>
   </form>
@@ -15,8 +17,9 @@
 <mat-list>
   <mat-list-item *ngFor="let object of list">
     <mat-icon matListIcon color="warn" (click) = "deleteObject(object.id)">delete</mat-icon>
-    <h3 matLine> {{object.title}} </h3>
+    <h3 matLine (click) = "editObject(object)"> {{object.obj.title}} </h3>
     <p matLine>
-      <span> {{object.description}} </span>
+      <span (click) = "editObject(object)"> {{object.obj.description}} </span>
+
   </mat-list-item>
 </mat-list>

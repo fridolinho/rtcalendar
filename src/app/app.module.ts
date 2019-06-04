@@ -12,6 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { ObjectService } from './object.service';
 import { CommonModule } from '@angular/common';
  
 import { ToastrModule } from 'ngx-toastr';
@@ -45,7 +46,7 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [ObjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
